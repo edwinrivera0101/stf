@@ -1,0 +1,22 @@
+language: node_js
+sudo: false
+node_js:
+  - "0.12"
+  - "0.10"
+  - "iojs"
+addons:
+  apt:
+    packages:
+    - libzmq3-dev
+    - libprotobuf-dev
+    - graphicsmagick
+    - rethinkdb
+script:
+  - gulp build
+before_script:
+  - npm install -g bower
+  - bower install
+cache:
+  directories:
+    - node_modules
+    - res/bower_components
